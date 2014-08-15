@@ -58,5 +58,5 @@ Based on these user inputs the API is calculated and filtered by `server.R` and 
 
 ## Slidify: Reproducible Pitch Presentation
 
-The slidify presentation is available at [here](http://pacificprince.shinyapps.io/Shiny/).
+The slidify presentation is available at [here](http://pacificprince.github.io/DevDataProdProjSlidify/presentation.html).
 
