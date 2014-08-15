@@ -10,7 +10,7 @@ This peer assessed assignment has two parts. First, there is a Shiny application
 
 
 
-The Shiny application compares the Academic Performance Index (API) of Schools in California subject to a number of variable (input) conditions. App published from RStudio to ShinyApps.io at https://rseiter.shinyapps.io/NHANESApp/.
+The Shiny application compares the Academic Performance Index (API) of Schools in California subject to a number of variable (input) conditions. App published from RStudio to ShinyApps.io.
 
 
 
@@ -60,5 +60,5 @@ Based on these user inputs the API is calculated and filtered by `server.R` and 
 
 ## Slidify: Reproducible Pitch Presentation
 
-The slidify presentation is available at link.
+The slidify presentation is available at [here](http://pacificprince.shinyapps.io/Shiny/).
 
