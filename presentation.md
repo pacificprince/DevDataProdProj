@@ -68,7 +68,9 @@ Shown below is the widget interace of the Shiny application.
 
 ## Github repos / gh-pages:
 - ShinyApp: http://pacificprince.shinyapps.io/Shiny/
-- Slidify: https://github.com/pacificprince/DevDataProdProj
+- Slidify: 
+  - Github: https://github.com/pacificprince/DevDataProdProj
+  - gh-page: http://pacificprince.github.io/DevDataProdProj/presentation.html
 
 
 
