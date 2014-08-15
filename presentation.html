@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Developing Data Products</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Developing Data Products">
+  <meta name="author" content="Prashanth Kumar">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/nvd3/css/nv.d3.css"></link>
+<link rel=stylesheet href="libraries/widgets/nvd3/css/rNVD3.css"></link>
+<link rel=stylesheet href="./assets/css/custom.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  <script src="libraries/widgets/nvd3/js/jquery-1.8.2.min.js"></script>
+<script src="libraries/widgets/nvd3/js/d3.v3.min.js"></script>
+<script src="libraries/widgets/nvd3/js/nv.d3.min-new.js"></script>
+<script src="libraries/widgets/nvd3/js/fisheye.js"></script>
+
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <aside class="gdbar">
+    <img src="assets/img/logo_ddp.jpg">
+  </aside>
+  <hgroup class="auto-fadein">
+    <h1>Developing Data Products</h1>
+    <h2>Course Project</h2>
+    <p>Prashanth Kumar<br/>Engineer, Semiconductor Research</p>
+  </hgroup>
+    <a href="https://github.com/pacificprince/DevDataProducts/zipball/gh-pages" class="example">
+     Download
+    </a>
+  <article></article>  
+  <footer class = 'license'>
+    <a href='http://creativecommons.org/licenses/by-nc-sa/3.0/'>
+    <img width = '80px' src = 'http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png'>
+    </a>
+  </footer>
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:lightgoldenrodyellow;">
+  <hgroup>
+    <h2>Summary</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>Goal</h3>
+
+<p>The goal of this project was to write an Shiny application that demonstrate&#39;s 
+some of Shiny&#39;s features. Calculations from operations on <code>ui.R</code> are displayed
+as reactive output on <code>server.R</code>.</p>
+
+<h3>Dataset</h3>
+
+<ul>
+<li>&quot;The cornerstone of California&#39;s Public Schools Accountability Act of 1999; measures the academic performance and growth of schools on a variety of academic measures&quot; (<a href="http://www.cde.ca.gov/ta/ac/">site</a>), one of 
+which is the <em>Academic Performance Index (API)</em>. </li>
+<li>The dataset used in the Shiny application is the API for public schools in California compiled from 
+2011 - 2013 and can be found <a href="http://www.cde.ca.gov/ta/ac/ap/apidatafiles.asp">here</a>. 
+The corresponding codebook for this datasoure is <a href="http://www.cde.ca.gov/ta/ac/ap/reclayoutApiAvg.asp">here</a>. 
+The distribution of three year weighted average APIs across various counties in 
+California is shown on the next slide.</li>
+<li>Of particular focus in the UI is the breakdown of the three year
+weighted API average by race, county and charter funded schools.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:lightgoldenrodyellow;">
+  <hgroup>
+    <h2>Three Year Average API across California Counties</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(ggplot2)
+library(grid)
+source(&quot;src/ggtheme_pub.R&quot;)
+map &lt;- ggplot(data_map, aes(x=long, y=lat)) + theme_pub()
+map &lt;- map + geom_polygon(aes(group=group, fill=avg_api), 
+                          color=&quot;black&quot;, size=0.75)
+map &lt;- map + coord_map(&quot;polyconic&quot;) + facet_grid(. ~ school_type)
+map &lt;- map + theme(axis.text.x=element_text(size = 14, vjust = 0), 
+                   axis.text.y=element_text(size = 14, hjust = 1))
+map &lt;- map + xlab(&quot;Longitude&quot;) + ylab(&quot;Latitude&quot;)
+map &lt;- map + scale_fill_gradient(low=&#39;#EEEEEE&#39;, high=&#39;darkgreen&#39;)
+print(map)
+</code></pre>
+
+<p><img src="assets/fig/map_data.png" alt="plot of chunk map_data"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:lightgoldenrodyellow;">
+  <hgroup>
+    <h2>ShinyApp</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Shown below is the widget interace of the Shiny application.
+<br></p>
+
+<p><img src="assets/img/shinyapp_interface.png" alt="ShinyApp Widget Interface"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:lightgoldenrodyellow;">
+  <hgroup>
+    <h2>Github repos / gh-pages:</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>ShinyApp: <a href="http://pacificprince.shinyapps.io/Shiny/">http://pacificprince.shinyapps.io/Shiny/</a></li>
+<li>Slidify: <a href="https://github.com/pacificprince/DevDataProdProj">https://github.com/pacificprince/DevDataProdProj</a></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Summary'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Three Year Average API across California Counties'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='ShinyApp'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Github repos / gh-pages:'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  <script src="./assets/js/app.js"></script>
+
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
