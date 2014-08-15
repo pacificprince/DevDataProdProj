@@ -24,9 +24,7 @@ The goal of this project was to write an Shiny application that demonstrate's so
 
 - *The cornerstone of California's Public Schools Accountability Act of 1999; measures the academic performance and growth of schools on a variety of academic measures* ([site](http://www.cde.ca.gov/ta/ac/)), one of which is the *Academic Performance Index (API)*. 
 
-- The dataset used in the Shiny application is the API for public schools in California compiled from 2011 - 2013 and can be found [here](http://www.cde.ca.gov/ta/ac/ap/apidatafiles.asp). 
-
-The corresponding codebook for this datasoure can be found [here](http://www.cde.ca.gov/ta/ac/ap/reclayoutApiAvg.asp) or in the `codebook.md` file in this repo. 
+- The dataset used in the Shiny application is the API for public schools in California compiled from 2011 - 2013 and can be found [here](http://www.cde.ca.gov/ta/ac/ap/apidatafiles.asp). The corresponding codebook for this datasoure can be found [here](http://www.cde.ca.gov/ta/ac/ap/reclayoutApiAvg.asp) or in the `codebook.md` file in this repo. 
 
 - Of particular focus in the UI is the breakdown of the three year weighted API average by race, county and charter funded schools.
 
