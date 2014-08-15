@@ -10,7 +10,7 @@ This peer assessed assignment has two parts. First, there is a Shiny application
 
 
 
-The Shiny application compares the Academic Performance Index (API) of Schools in California subject to a number of variable (input) conditions. App published from RStudio to ShinyApps.io.
+The Shiny application compares the Academic Performance Index (API) of Schools in California subject to a number of variable (input) conditions. App published from RStudio to ShinyApps.io [here](http://pacificprince.shinyapps.io/Shiny/).
 
 
 
