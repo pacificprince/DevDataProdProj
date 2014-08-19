@@ -1,5 +1,4 @@
 theme_pub <- function(base_size = 12, base_family = "Helvetica") {
-    windowsFonts(Helvetica=windowsFont("Helvetica"))
     theme_bw(base_size = base_size, base_family = base_family) %+replace%
     theme(
     panel.background =      element_blank(),   
