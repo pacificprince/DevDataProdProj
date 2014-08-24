@@ -20,6 +20,7 @@ The goal of this project was to write an Shiny application that demonstrate's so
 The interface to the Shiny application is shown in the figure below. The application allows for quickly viewing and comparing APIs by race, county and charter funding. The left side contains input controls (user selection). The output on the right is a bar plot comparing the three year weighted average API as per the selections.
 
 The user interface consists of the following controls:
+
 1. Two tabs:
 	- **About**: Gives a quick overview of how to use the application.
 	- **App**: This is the ShinyApp interface shown below.
